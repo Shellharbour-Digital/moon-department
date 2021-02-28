@@ -11,7 +11,6 @@ export const getMovers = async ({ currency }) => {
   const movers = []
 
   for (let i= 0; i < json.length; i++) {
-    console.log(json[i].price_change_percentage_1h_in_currency);
       movers[i] =  {
           rank: json[i].market_cap_rank,
           id: json[i].id,
@@ -26,8 +25,19 @@ export const getMovers = async ({ currency }) => {
         }
     }
 
-  movers.sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
-  const topMovers = movers.slice(0, 20)
+    // Quick fix for null vals
+    Object.keys(movers).forEach(function(key) {
+      if(movers[key].high_24h === null) { movers[key].high_24h = 0 }
+      if(movers[key].low_24h === null) { movers[key].low_24h = 0 }
+      if(movers[key].price_change_percentage_24h === null) { movers[key].price_change_percentage_24h = 0 }
+      if(movers[key].price_change_percentage_1h === null) { movers[key].price_change_percentage_1h = 0 }
+      if(movers[key].current_price === null) { movers[key].current_price = 0 }
+    })
+
+    movers.sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
+    const topMovers = movers.slice(0, 20)
+
+
 
   return topMovers
 }
