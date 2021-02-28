@@ -26,7 +26,7 @@ export const getMovers = async ({ currency }) => {
         }
     }
 
-  movers.sort((a, b) => parseFloat(b.price_change_percentage_24h) - parseFloat(a.price_change_percentage_24h))
+  movers.sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
   const topMovers = movers.slice(0, 20)
 
   return topMovers

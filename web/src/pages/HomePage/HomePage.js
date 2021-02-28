@@ -5,20 +5,20 @@ import MoversCell from 'src/components/MoversCell'
 
 export const HomePage = () => {
 
-  const [currency, setCurrency] = useState("usd")
+  const [currency, setCurrency] = useState('usd')
   const handleCurrency = (e) => { setCurrency(e.target.value) }
 
   return (
     <>
 
-    <div id="page-wrapper">
+    <div id='page-wrapper'>
 
-        <section id="wrapper">
-          <div className="inner">
+        <section id='wrapper'>
+          <div className='inner'>
             <h1><b>Moon</b>Department</h1>
             <div className='container-flex'>
             <h2>Popular Movers</h2>
-            <select className='currency-select' style={{width: 'auto'}} name="currencies" onChange={handleCurrency}>
+            <select className='currency-select' style={{width: 'auto'}} name='currencies' onChange={handleCurrency}>
               <option value='usd'>USD</option>
               <option value='aud'>AUD</option>
               <option value='eur'>EUR</option>
@@ -44,16 +44,16 @@ export const HomePage = () => {
 
           </div>
           <footer>
-            <ul className="icons">
-              <li><a href="#" className="icon fa-github"><span className="label">GitHub</span></a></li>
+            <ul className='icons'>
+              <li><a target='_blank' href='https://github.com/Shellharbour-Digital/moon-department' className='icon fa-github'><span className='label'>GitHub</span></a></li>
             </ul>
           </footer>
         </section>
 
-        <section id="banner">
-          <div className="inner">
-            <div className="content">
-              <ul style={{backgroundImage: "url(images/moondeptcall.png)"}}>
+        <section id='banner'>
+          <div className='inner'>
+            <div className='content'>
+              <ul style={{backgroundImage: 'url(images/moondeptcall.png)'}}>
                 <TrendingCell/>
               </ul>
             </div>

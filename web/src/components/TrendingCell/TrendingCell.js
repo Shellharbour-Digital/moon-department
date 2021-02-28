@@ -19,7 +19,7 @@ export const Failure = ({ error }) => <li><div style={{padding: 0}} className='c
 export const Success = ({ getTrending }) => {
   return getTrending.map((trend) => (
     <li key={trend.id}>
-      <a target="_blank" href={`https://coingecko.com/en/coins/${trend.id}`}>
+      <a target='_blank' href={`https://coingecko.com/en/coins/${trend.id}`}>
         <img src={trend.icon} alt={trend.name} />
         <span>{trend.name}</span>
       </a>
